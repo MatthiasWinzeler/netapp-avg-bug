@@ -97,6 +97,9 @@ resource "azurerm_virtual_machine" "main" {
   availability_set_id          = azurerm_availability_set.db.id
   proximity_placement_group_id = azurerm_proximity_placement_group.db.id
 
+  delete_os_disk_on_termination    = true
+  delete_data_disks_on_termination = true
+
   storage_image_reference {
     offer     = "0001-com-ubuntu-server-focal"
     publisher = "Canonical"
